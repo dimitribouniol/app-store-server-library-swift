@@ -226,6 +226,10 @@ public enum VerificationResult<T> {
     case invalid(VerificationError)
 }
 
+extension VerificationResult: Equatable where T: Equatable {}
+extension VerificationResult: Hashable where T: Hashable {}
+extension VerificationResult: Sendable where T: Sendable {}
+
 public enum VerificationError: Hashable, Sendable {
     case INVALID_JWT_FORMAT
     case INVALID_CERTIFICATE
